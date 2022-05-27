@@ -23,7 +23,6 @@ export class ClientResolver {
     return this.clientService.findOne(id);
   }
 
-  @Directive('@connected')
   @Query(() => Float, { name: 'clientMean' })
   getMean() {
     return this.clientService.getMean();
