@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreateClientInput } from './dto/create-client.input';
-import { UpdateClientInput } from './dto/update-client.input';
 import { InjectRepository } from '@nestjs/typeorm';
 import ClientRepository from './client.repository';
 
@@ -15,22 +14,6 @@ export class ClientService {
 
   async findAll() {
     return  await this.repository.find();
-  }
-
-  findOne(id: number) {
-    return  this.repository.findOne({
-      where: {
-        id
-      }
-    });
-  }
-
-  update(id: number, updateClientInput: UpdateClientInput) {
-    return this.repository.update({id},updateClientInput);
-  }
-
-  remove(id: number) {
-    return  this.repository.delete({id});
   }
 
   async getMean() {

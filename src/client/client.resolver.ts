@@ -1,15 +1,14 @@
-import { Resolver, Query, Mutation, Args, Int, Float, Directive } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args, Float } from '@nestjs/graphql';
 import { ClientService } from './client.service';
 import { Client } from './entities/client.entity';
 import { CreateClientInput } from './dto/create-client.input';
-import { UpdateClientInput } from './dto/update-client.input';
 
 @Resolver(() => Client)
 export class ClientResolver {
   constructor(private readonly clientService: ClientService) {}
 
   @Mutation(() => Client)
-  createClient(@Args('createClientInput') createClientInput: CreateClientInput) {
+  createClient(@Args('input') createClientInput: CreateClientInput) {
     return this.clientService.create(createClientInput);
   }
 
