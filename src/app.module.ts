@@ -5,7 +5,6 @@ import 'dotenv/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import {join} from 'path';
-import { NoteModule } from './note/note.module';
 
 @Module({
   imports: [
@@ -27,7 +26,6 @@ import { NoteModule } from './note/note.module';
       sortSchema: true,
     }),
     ClientModule,
-    NoteModule
   ],
   controllers: [],
   providers: []

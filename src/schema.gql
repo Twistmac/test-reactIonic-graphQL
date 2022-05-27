@@ -14,11 +14,6 @@ input CreateClientInput {
   note: Int!
 }
 
-input CreateNoteInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
-}
-
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
@@ -26,33 +21,18 @@ scalar DateTime
 
 type Mutation {
   createClient(createClientInput: CreateClientInput!): Client!
-  createNote(createNoteInput: CreateNoteInput!): Note!
   removeClient(id: Int!): Client!
-  removeNote(id: Int!): Note!
   updateClient(updateClientInput: UpdateClientInput!): Client!
-  updateNote(updateNoteInput: UpdateNoteInput!): Note!
-}
-
-type Note {
-  """Example field (placeholder)"""
-  _id: Int!
 }
 
 type Query {
   client(id: Int!): Client!
   clientMean: Float!
   listClient: [Client!]!
-  note(id: Int!): Note!
 }
 
 input UpdateClientInput {
   id: Int!
   name: String
   note: Int
-}
-
-input UpdateNoteInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
 }
